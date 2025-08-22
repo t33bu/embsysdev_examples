@@ -12,8 +12,8 @@
 #include <inttypes.h>
 
 // Configure buttons
-#define BUTTON_0 DT_ALIAS(sw0) // Configured for use
-#define BUTTON_1 DT_ALIAS(sw1) // Not configured for use
+#define BUTTON_0 DT_ALIAS(sw0)
+// #define BUTTON_1 DT_ALIAS(sw1)
 static const struct gpio_dt_spec button_0 = GPIO_DT_SPEC_GET_OR(BUTTON_0, gpios, {0});
 static struct gpio_callback button_0_data;
 
@@ -63,4 +63,6 @@ int init_button() {
 	gpio_init_callback(&button_0_data, button_0_handler, BIT(button_0.pin));
 	gpio_add_callback(button_0.port, &button_0_data);
 	printk("Set up button 0 ok\n");
+	
+	return 0;
 }

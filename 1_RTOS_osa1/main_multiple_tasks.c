@@ -13,12 +13,14 @@ K_THREAD_DEFINE(tid1,STACKSIZE,task1,NULL,NULL,NULL,PRIORITY,0,0);
 K_THREAD_DEFINE(tid2,STACKSIZE,task2,NULL,NULL,NULL,PRIORITY,0,0);
 
 // Main program
-void main(void) {
+int main(void) {
 	while (true) {
 		printk("Hello from main\n");
 		k_msleep(1000);
 		// k_yield();
 	}
+	
+	return 0;
 }
 
 // Task1 function
